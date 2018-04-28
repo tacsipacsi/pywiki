@@ -28,7 +28,6 @@ Examples:
 from __future__ import absolute_import, unicode_literals
 
 import codecs
-import re
 import signal
 
 import pywikibot
@@ -124,7 +123,7 @@ class ParamsBot(SingleSiteBot):
                         values.append(value)
                 self.output(page, fielddict)
                 # Write in file
-                self.write_file('%s\t%s\n' % (page.title(), '\t'.join([x if x is not None else '' for x in values])))
+                self.write_file('%s\t%s\n' % (page.title(), '\t'.join([x.replace('\n', '\\n') if x is not None else '' for x in values])))
 
     def exit(self):
         self.write_file('\t%s\n' % '\t'.join(self.parameters))
