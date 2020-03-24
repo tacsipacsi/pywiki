@@ -20,6 +20,7 @@ def main(*args):
     local_args = pywikibot.handle_args(args)
     
     site = pywikibot.Site('hu', 'wikipedia')
+    site.login()
     
     ma = (date.today() - datetime.timedelta(days=1)).isoformat()
     maiArch = pywikibot.Page(site, 'Tudakozó/Archívum/' + ma, 4)
