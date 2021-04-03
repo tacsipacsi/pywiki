@@ -30,7 +30,7 @@ class IwTranslateBot(SingleSiteBot):
     def treat(self, page):
         for link in page.iterlanglinks(include_obsolete=True):
             if link.site.lang == self.targetlang:
-                pywikibot.output(pywikibot.Page(link).title(with_ns=True))
+                print(pywikibot.Page(link).title(with_ns=True))
 
 def main(*args):
     targetlang = None
